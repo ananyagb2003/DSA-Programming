@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include<string.h>
-void pali(char a[]){
+#include<stdbool.h>
+bool pali(char a[]){
     int i,j,n;
     n=strlen(a);
     i=0,j=n-1;
@@ -12,15 +13,24 @@ void pali(char a[]){
         j--;
     }
     if(i>j||i==j){
-        printf("Yes");
+        return true;
     }
     else
-    printf("No");
+    return false;
+    
+}
+void part(char a[]){
     
 }
 int main(){
     char a[100];
+    bool res;
     printf("Enter:");
     gets(a);
-    pali(a);
+    res=pali(a);
+    if(res==true){
+        printf("Yes");
+    }
+    else
+     printf("No");
 }
