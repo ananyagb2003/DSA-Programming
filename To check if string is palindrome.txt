@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include<string.h>
+void pali(char a[]){
+    int i,j,n;
+    n=strlen(a);
+    i=0,j=n-1;
+    while(i<j){
+        if(a[i]!=a[j]){
+        break;
+        }
+        i++;
+        j--;
+    }
+    if(i>j||i==j){
+        printf("Yes");
+    }
+    else
+    printf("No");
+    
+}
+int main(){
+    char a[100];
+    printf("Enter:");
+    gets(a);
+    pali(a);
+}
