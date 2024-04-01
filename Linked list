@@ -1,0 +1,38 @@
+public class Main {
+    Node head;                //declare head
+    class Node{              //node class
+        String data;
+        Node next;
+    Node(String data){         //constructure Node
+        this.data=data;
+        this.next=null;
+    }
+        }
+        public void addfirst(String data){         //insert from first
+        Node newnode=new Node(data);
+        if(head==null){
+            head=newnode;
+            return;
+        }
+        newnode.next=head;
+        head=newnode;
+        }
+        public void print(){
+        if(head==null){
+            System.out.println("Empty");
+            return;
+        }
+        Node curnod=head;
+        while(curnod!=null){
+            System.out.print(curnod.data+"->");
+            curnod=curnod.next;
+        }
+            System.out.println("NULL");
+        }
+    public static void main(String[] args) {
+       Main list=new Main();
+       list.addfirst("is");
+       list.addfirst("It");
+       list.print();
+    }
+}
