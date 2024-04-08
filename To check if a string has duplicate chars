@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+    static boolean check(String a){
+        int i,j;
+        for(i=0;i<a.length();i++){
+            for(j=i+1;j<a.length();j++){
+                if(a.charAt(i)==a.charAt(j)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+       String a;
+       int i,j;
+        System.out.println("Enter:");
+        a=sc.nextLine();
+        boolean res= check(a);
+        if(res){
+            System.out.println("True");
+        }
+        else
+            System.out.println("False");
+
+    }
+}
