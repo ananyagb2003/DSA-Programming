@@ -1,0 +1,20 @@
+class Solution {
+    int minRow(int n, int m, int a[][]) {
+        // code here
+        int i,j,row=0;
+        int res=Integer.MAX_VALUE;
+        for(i=0;i<n;i++){
+            int count=0;
+            for(j=0;j<m;j++){
+                if(a[i][j]==1){
+                    count++;
+                }
+            }
+            if(count<res){
+                res=count;
+                row=i;
+            }
+        }
+        return row+1;
+    }
+};
