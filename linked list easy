@@ -1,0 +1,40 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Main{
+    node head;
+    class node {
+        int data;
+        node next;
+
+        node(int x) {
+            data=x;
+        }
+    }
+
+        void insert(int v){
+            node n=new node(v);
+            if(head==null){
+                head=n;
+                return;
+            }
+            node temp=head;
+            temp.next=n;
+            temp=n;
+        }
+        void print(){
+            node temp=head;
+            while(temp!=null){
+                System.out.println(temp.data);
+                temp=temp.next;
+            }
+        }
+        public static void main(String[] args){
+            Main list=new Main();
+            list.insert(44);
+            list.print();
+        }
+    }
+
+//}
