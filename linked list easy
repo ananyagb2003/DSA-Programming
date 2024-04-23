@@ -4,6 +4,7 @@ import java.io.*;
 
 class Main{
     node head;
+
     class node {
         int data;
         node next;
@@ -20,19 +21,52 @@ class Main{
                 return;
             }
             node temp=head;
+            while(temp.next!=null){
+                temp=temp.next;
+            }
             temp.next=n;
-            temp=n;
+        }
+        void insertfirst(int v){
+        node n=new node(v);
+        if(head==null){
+            head=n;
+            return;
+        }
+        n.next=head;
+        head=n;
+        }
+        void deletefirst(){
+        head=head.next;
+        }
+        void deleteend(){
+         node temp=head;
+        while(temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
         }
         void print(){
-            node temp=head;
+             node temp=head;
             while(temp!=null){
-                System.out.println(temp.data);
+                System.out.print(temp.data+" ");
                 temp=temp.next;
             }
         }
         public static void main(String[] args){
             Main list=new Main();
-            list.insert(44);
+            Scanner sc=new Scanner(System.in);
+            int c=1;
+            while(c==1) {
+                System.out.println("Enter:");
+                int x=sc.nextInt();
+                list.insert(x);
+                System.out.println("Continue? 0/1");
+                 c=sc.nextInt();
+                if(c==0)
+                    break;
+            }
+            list.print();
+            list.deletefirst();
             list.print();
         }
     }
