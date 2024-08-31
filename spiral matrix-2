@@ -1,0 +1,40 @@
+class Solution {
+    public int[][] generateMatrix(int n) {
+        int[][] res=new int[n][n];
+        int cb=0,ce=res[0].length-1;
+        int rb=0,re=res.length-1;
+        int sum=0;
+        for(int i=0;i<res.length;i++){
+            for(int j=0;j<res[0].length;j++){
+                res[i][j]=0;
+            }
+        }
+        while(rb<=re&&cb<=ce){
+            for(int j=cb;j<=ce;j++){
+                sum+=1;
+                res[rb][j]=sum;
+            }
+            rb++;
+            for(int j=rb;j<=re;j++){
+                sum+=1;
+                res[j][ce]=sum;
+            }
+            ce--;
+            if(rb<=re){
+                for(int j=ce;j>=cb;j--){
+                    sum+=1;
+                    res[re][j]=sum;
+                }
+            }
+            re--;
+            if(cb<=ce){
+                for(int j=re;j>=rb;j--){
+                    sum+=1;
+                    res[j][cb]=sum;
+                }
+            }
+            cb++;
+        }
+        return res;
+    }
+}
