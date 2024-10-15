@@ -1,0 +1,41 @@
+class Result {
+
+    /*
+     * Complete the 'migratoryBirds' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static int migratoryBirds(List<Integer> arr) {
+    // Write your code here
+          HashMap<Integer,Integer> map=new HashMap<>();
+          int ans=Integer.MIN_VALUE;
+          int max=0;
+          
+          int[] ar=new int[arr.size()];
+          for(int i=0;i<arr.size();i++){
+              ar[i]=arr.get(i);
+          }
+          Arrays.sort(ar);
+          for(int i=0;i<arr.size();i++){
+              int a=arr.get(i);
+              if(!map.containsKey(a)){
+                  map.put(a,1);
+              }
+              map.put(a,map.get(a)+1);
+              if(map.get(a)>max){
+                  max=map.get(a);
+                  ans=a;
+              }
+              if(map.get(a)==max){
+                  if(a<ans){
+                  max=map.get(a);
+                  ans=a;
+                  }
+              }
+          }
+          return ans;
+    }
+
+}
