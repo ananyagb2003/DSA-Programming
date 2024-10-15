@@ -1,0 +1,33 @@
+import java.util.HashSet;
+
+public class Solution {
+    public static String removeSpecifiedDigits(String number, String toRemove) {
+        // Convert the string of numbers to be removed into a HashSet for quick lookup
+        HashSet<Character> removeSet = new HashSet<>();
+        for (char ch : toRemove.toCharArray()) {
+            removeSet.add(ch);
+        }
+
+        // StringBuilder to build the result string
+        StringBuilder result = new StringBuilder();
+
+        // Iterate over the number string and add characters not in the removeSet
+        for (char ch : number.toCharArray()) {
+            if (!removeSet.contains(ch)) {
+                result.append(ch);
+            }
+        }
+
+        // Return the result as a string
+        return result.toString();
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        String number = "1432219";
+        String toRemove = "12";
+
+        String result = removeSpecifiedDigits(number, toRemove);
+        System.out.println("Result: " + result); // Output should be "439"
+    }
+}
