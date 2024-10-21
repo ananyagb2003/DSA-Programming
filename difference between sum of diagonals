@@ -1,0 +1,19 @@
+public static int diagonalDifference(List<List<Integer>> arr) {
+    // Write your code here
+          int[][] a=new int[arr.size()][arr.get(0).size()];
+          for(int i=0;i<arr.size();i++){
+              for(int j=0;j<arr.get(0).size();j++){
+                  a[i][j]=arr.get(i).get(j);
+              }
+          }
+         int sum1=0;
+         int sum2=0;
+         for(int i=0;i<a.length;i++){
+             sum1+=a[i][i];
+             sum2+=a[i][a.length-i-1];
+         }
+         int diff=Math.abs(sum1-sum2);
+         return diff;
+    }
+
+}
