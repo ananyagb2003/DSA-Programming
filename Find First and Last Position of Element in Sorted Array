@@ -1,0 +1,45 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int[] arr=new int[2];
+        if(nums.length==1){
+            if(nums[0]==target){
+            arr[0]=0;
+            arr[1]=0;
+            return arr;
+        }
+        else{
+            arr[0]=-1;
+            arr[1]=-1;
+            return arr;
+        }
+        }
+        int low=0;
+        int high=nums.length-1;
+        int mid=0;
+        while(low<=high){
+        mid=(high+low)/2;
+        if(nums[mid]==target){
+            int i=mid;
+            while(i >= 0 && nums[i] == target){
+                i--;
+            }
+            int j=mid;
+            while(j < nums.length && nums[j] == target){
+                j++;
+            }
+            arr[0]=i+1;
+            arr[1]=j-1;
+            return arr;
+        }
+        else if(nums[mid]<target){
+            low=mid+1;
+        }
+        else{
+            high=mid-1;
+        }
+        }
+        arr[0]=-1;
+        arr[1]=-1;
+        return arr;
+    }
+}
