@@ -1,0 +1,38 @@
+public int splitArray(int[] nums, int k) {
+        int low=Arrays.stream(nums).max().getAsInt();
+        int high=sum(nums);
+        int mid=0;
+        while(low<=high){
+             mid=(high+low)/2;
+            int nostu=find(nums,mid);
+            if(nostu>k){
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return low;
+    }
+    public int sum(int[] nums){
+        int sumo=0;
+        for(int i=0;i<nums.length;i++){
+            sumo+=nums[i];
+        }
+        return sumo;
+    }
+    public int find(int[] nums,int mid){
+        int stu=1;
+        int pagenos=0;
+        for(int i=0;i<nums.length;i++){
+            if(pagenos+nums[i]<=mid){
+                pagenos+=nums[i];
+            }
+            else{
+                stu++;
+                pagenos=nums[i];
+            }
+        }
+        return stu;
+    }
+}
