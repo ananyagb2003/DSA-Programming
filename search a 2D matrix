@@ -1,0 +1,30 @@
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
+        for(int i=0;i<matrix.length;i++){
+            int res=findsmall(matrix[i],target);
+            if(res==target){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int findsmall(int[] row,int target){
+        int low=0;
+        int high=row.length-1;
+        int mid=0;
+        while(low<=high){
+            mid=(high+low)/2;
+            if(row[mid]==target){
+                return row[mid];
+            }
+            else if(row[mid]>target){
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return -1;
+    }
+}
